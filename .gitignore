@@ -1,0 +1,6 @@
+# MedDziwa extracted docs (local only)
+_extracted_*.txt
+
+# OS
+Thumbs.db
+.DS_Store

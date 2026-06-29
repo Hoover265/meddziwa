@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #eefafa;
+  --color-brand-100: #d5f3f3;
+  --color-brand-200: #afe6e6;
+  --color-brand-300: #7dd3d3;
+  --color-brand-400: #45b8b8;
+  --color-brand-500: #0d6e6e;
+  --color-brand-600: #0b5c5c;
+  --color-brand-700: #094a4a;
+  --color-brand-800: #073838;
+  --color-brand-900: #052626;
+  --color-accent-500: #e8a838;
+  --color-danger-500: #dc2626;
+  --color-warning-500: #d97706;
+  --color-success-500: #059669;
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans min-h-screen;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
+
+@layer components {
+  .touch-target {
+    @apply min-h-11 min-w-11;
+  }
+}
