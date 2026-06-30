@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 const accentBorder = {
-  default: 'border-slate-200',
+  default: 'border-slate-200 bg-white/95',
   warning: 'border-warning-500 bg-amber-50',
   danger: 'border-danger-500 bg-red-50',
   success: 'border-success-500 bg-emerald-50',
@@ -19,7 +19,7 @@ export function Card({ title, subtitle, children, className = '', accent = 'defa
   return (
     <section
       className={[
-        'rounded-xl border-2 bg-white p-5 shadow-sm',
+        'rounded-2xl border bg-white/95 p-5 shadow-[0_10px_35px_-20px_rgba(15,23,42,0.35)]',
         accentBorder[accent],
         className,
       ].join(' ')}

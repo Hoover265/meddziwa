@@ -21,9 +21,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={[
-            'touch-target w-full rounded-lg border-2 bg-white px-4 py-3 text-base text-slate-900',
-            'placeholder:text-slate-400 focus:border-brand-500 focus:outline-none',
-            error ? 'border-danger-500' : 'border-slate-200',
+            'touch-target w-full rounded-xl border bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition-colors',
+            'placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100',
+            error ? 'border-danger-300' : 'border-slate-200',
             className,
           ].join(' ')}
           {...props}

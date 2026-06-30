@@ -1,6 +1,6 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { useAuthStore } from '@/stores/authStore'
 import { Button } from '@/components/ui/Button'
+import { useAuthStore } from '@/stores/authStore'
 
 const clinicianLinks = [
   { to: '/clinician', label: 'Home', end: true },
@@ -18,18 +18,24 @@ export function ClinicianLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <header className="border-b-2 border-brand-500 bg-brand-500 text-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4">
-          <div>
-            <p className="text-sm font-medium opacity-90">MedDziwa</p>
-            <h1 className="text-xl font-bold">Diagnostic Assistant</h1>
+      <header className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500 text-xl font-black text-white">
+              +
+            </div>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wide text-brand-700">MedDziwa</p>
+              <h1 className="text-xl font-bold text-slate-950">Clinician Workspace</h1>
+            </div>
           </div>
-          <div className="text-right text-sm">
-            <p className="font-semibold">{user?.fullName}</p>
-            <p className="opacity-90">{user?.facilityName}</p>
+          <div className="rounded-lg bg-slate-100 px-4 py-3 text-sm sm:text-right">
+            <p className="font-bold text-slate-950">{user?.fullName}</p>
+            <p className="text-slate-600">{user?.facilityName}</p>
           </div>
         </div>
-        <nav className="mx-auto flex max-w-5xl gap-1 px-4 pb-3">
+
+        <nav className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 pb-4">
           {clinicianLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -37,8 +43,10 @@ export function ClinicianLayout() {
               end={link.end}
               className={({ isActive }) =>
                 [
-                  'touch-target rounded-lg px-4 py-2 text-sm font-semibold transition-colors',
-                  isActive ? 'bg-white text-brand-700' : 'text-white/90 hover:bg-white/15',
+                  'touch-target shrink-0 rounded-lg px-4 py-2 text-sm font-bold transition-colors',
+                  isActive
+                    ? 'bg-brand-500 text-white'
+                    : 'bg-slate-100 text-slate-700 hover:bg-brand-50 hover:text-brand-800',
                 ].join(' ')
               }
             >
@@ -48,15 +56,15 @@ export function ClinicianLayout() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-5xl px-4 py-6">
+      <main className="mx-auto max-w-6xl px-4 py-6">
         <Outlet />
       </main>
 
-      <footer className="mx-auto max-w-5xl px-4 pb-6">
-        <p className="text-center text-xs text-slate-500">
-          Decision support only — clinician retains final clinical authority.
-        </p>
-        <div className="mt-2 flex justify-center">
+      <footer className="mx-auto max-w-6xl px-4 pb-6">
+        <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-medium text-slate-600">
+            Decision support only. The clinician retains final clinical authority.
+          </p>
           <Button variant="ghost" size="sm" onClick={handleLogout}>
             Sign out
           </Button>

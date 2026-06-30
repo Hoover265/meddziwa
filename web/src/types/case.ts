@@ -1,4 +1,4 @@
-export type Gender = 'male' | 'female' | 'other'
+export type Gender = 'male' | 'female'
 export type AgeGroup = 'neonate' | 'infant' | 'young_child' | 'child' | 'adolescent' | 'adult' | 'elderly'
 
 export interface AgeGroupDefinition {
